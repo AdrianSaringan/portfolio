@@ -1,198 +1,156 @@
-/* css/styles.css */
-
-/* =========================
-   :root variables
-   ========================= */
-:root{
-  --bg: #ffffff;
-  --surface: #f8fafc;
-  --text: #0f172a;      /* dark text */
-  --muted: #475569;
-  --accent: #0ea5a4;    /* accent for buttons (white text on accent) */
-  --radius: 12px;
-  --max-width: 1080px;
-  --gap: 1.25rem;
-  --container-padding: 1rem;
+/* ==============================
+   VARIABLES
+   ============================== */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #2980b9;
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --accent-color: #e67e22;
+    --max-width: 1200px;
+    --gap: 1rem;
 }
 
-/* =========================
-   Basic reset & layout
-   ========================= */
-*,
-*::before,
-*::after { box-sizing: border-box; }
+/* ==============================
+   GLOBAL STYLES
+   ============================== */
+* {
+    box-sizing: border-box;
+}
 
-html,body { height:100%; }
 body {
-  margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.45;
-  -webkit-font-smoothing:antialiased;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-/* Container */
-.container {
-  max-width: var(--max-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--container-padding);
-  padding-right: var(--container-padding);
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
 }
 
-/* =========================
-   Skip link
-   ========================= */
+a:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Skip link */
 .skip-link {
-  position: absolute;
-  left: -999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--secondary-color);
+    color: #fff;
+    padding: 8px;
+    z-index: 100;
+}
+.skip-link:focus {
+    top: 0;
 }
 
-/* when focused, make it visible */
-.skip-link:focus,
-.skip-link:active {
-  left: 1rem;
-  top: 1rem;
-  width: auto;
-  height: auto;
-  background: var(--accent);
-  color: #fff;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  z-index: 1000;
-  text-decoration: none;
+/* ==============================
+   HEADER
+   ============================== */
+header {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
 }
 
-/* =========================
-   Header / Nav
-   ========================= */
-.site-header {
-  border-bottom: 1px solid rgba(15,23,42,0.06);
-  background: var(--surface);
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    gap: var(--gap);
 }
 
-.site-header .container {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: var(--gap);
-  padding: 1rem 0;
+header nav ul li a {
+    color: #fff;
+    font-weight: bold;
 }
 
-.site-title {
-  margin: 0;
-  font-size: 1.125rem;
+/* ==============================
+   MAIN
+   ============================== */
+main {
+    max-width: var(--max-width);
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-.site-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display:flex;
-  gap: 0.75rem;
-}
-
-.site-nav a {
-  text-decoration: none;
-  color: var(--text);
-  padding: 0.25rem 0.5rem;
-  border-radius: 6px;
-  font-size: 0.95rem;
-}
-
-/* visible keyboard focus */
-.site-nav a:focus,
-.site-nav a:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
-}
-
-/* =========================
-   About section
-   ========================= */
-.section { padding: 2rem 0; }
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  align-items: center;
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
 }
 
 .profile-img {
-  width: 100%;
-  max-width: 320px;
-  height: auto;
-  border-radius: 8px;
-  display:block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-/* =========================
-   Projects grid
-   ========================= */
-.projects-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
 }
 
-.project-card article {
-  background: var(--surface);
-  padding: 1rem;
-  border-radius: var(--radius);
-  border: 1px solid rgba(15,23,42,0.04);
+.project-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
 }
 
-/* Buttons/links */
-.btn {
-  display:inline-block;
-  text-decoration: none;
-  background: var(--accent);
-  color: #fff;
-  padding: 0.45rem 0.8rem;
-  border-radius: 8px;
-  font-weight: 600;
+.project-card:hover {
+    transform: translateY(-5px);
 }
 
-/* focus style for buttons/links */
-a:focus,
-a:focus-visible {
-  outline: 3px solid #111827;
-  outline-offset: 3px;
+.project-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-weight: bold;
 }
 
-/* Visually hidden utility for captions/labels */
-.visually-hidden {
-  position: absolute !important;
-  height: 1px; width: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap;
+/* ==============================
+   FOOTER
+   ============================== */
+footer {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
 }
 
-/* =========================
-   Responsive tweaks (desktop)
-   ========================= */
-@media (min-width: 700px) {
-  .about-grid {
-    grid-template-columns: 320px 1fr;
-    gap: 2rem;
-  }
-  .projects-list {
-    grid-template-columns: repeat(2, minmax(0,1fr));
-  }
+/* ==============================
+   MEDIA QUERIES
+   ============================== */
+@media (min-width: 600px) {
+    .about-content {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .about-content p {
+        max-width: 600px;
+    }
 }
 
-@media (min-width: 1000px) {
-  .projects-list {
-    grid-template-columns: repeat(3, minmax(0,1fr));
-  }
+@media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
