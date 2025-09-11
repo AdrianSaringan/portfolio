@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Portfolio — About me and selected projects" />
+  <!-- Preload + normal stylesheet link -->
+  <link rel="preload" href="css/styles.css" as="style" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <title>Adrian Saringan — Portfolio</title>
+</head>
+<body>
+  <!-- Visible only to keyboard users when focused -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Adrian Saringan</h1>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ABOUT -->
+    <section id="about" class="about section">
+      <div class="container about-grid">
+        <figure class="profile">
+          <img
+            src="assets/profile-400.jpg"
+            srcset="assets/profile-400.jpg 400w, assets/profile-800.jpg 800w"
+            sizes="(max-width:600px) 100vw, 300px"
+            alt="Portrait of Adrian Saringan, web developer and IT student"
+            width="400" height="400"
+            class="profile-img"
+          />
+        </figure>
+
+        <div class="about-text">
+          <h2>About</h2>
+          <p>
+            I’m <strong>Adrian Saringan</strong>, an IT student who builds accessible,
+            responsive web interfaces. I care about semantic HTML, maintainable CSS,
+            and keyboard-first accessibility.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="projects section">
+      <div class="container">
+        <h2>Projects</h2>
+
+        <ul class="projects-list">
+          <li class="project-card">
+            <article>
+              <h3>Project One</h3>
+              <p>Short 1–2 line description of the project — what it does and the tech used.</p>
+              <p>
+                <a class="btn" href="https://github.com/yourname/project-one" target="_blank" rel="noopener">View</a>
+              </p>
+            </article>
+          </li>
+
+          <li class="project-card">
+            <article>
+              <h3>Project Two</h3>
+              <p>Short 1–2 line description of this second project.</p>
+              <p><a class="btn" href="#" aria-disabled="true">View</a></p>
+            </article>
+          </li>
+
+          <!-- Add 1 more project card (2–3 total as required) -->
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="container">
+      <p>Contact: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <p>&copy; 2025 Your Name</p>
+    </div>
+  </footer>
+</body>
+</html>
